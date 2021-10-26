@@ -8,26 +8,22 @@
 
 		sf::VertexArray circleArray;
 		const int size;
-		const float pi = {3.141};
+		const float pi = 3.141;
 		float increment = 2 * pi / numCircPoints;
-		int numCircPoints = {60 };
+		int numCircPoints;
 		int xCentre;
 		int yCentre;
 		int xPosition;
 		int yPosition;
 		int theta = 0;
-		int radius = { 100 };
-
+		float radius = { 200 };
+		
 
 	public:
 
-		//int radius = { 100 };
-		//int numCircPoints = { 60 };
-		//float theta = { 0.f };
-		//float increment = 2 * pi / numCircPoints;
 		
 		Circle(); //Initialising constructor for the circle class
-		//Circle(int xPosition, int yPosition, int raduis);
+		
 		Circle(int xPosition, int yPosition, int raduis, int numCircPoints);
 		//~Circle();
 		

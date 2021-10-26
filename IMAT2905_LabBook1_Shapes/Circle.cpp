@@ -1,48 +1,39 @@
 #include<SFML/Graphics.hpp>
 #include "Circle.h"
 
-Circle::Circle():size()
+Circle::Circle() :size(), xCentre(), yCentre(), xPosition(), yPosition(), increment()
 {
-	circleArray.setPrimitiveType(sf::LinesStrip);
-	circleArray.resize(size);
+	//circleArray.setPrimitiveType(sf::LinesStrip);
+	//circleArray.resize(size);
 	//xCentre = xPosition;
 	//yCentre = yPosition;
 
 
-	//numCircPoints = {30};
-	
-	//drawCircle();
-	
+	//xCentre = 300;
+	//yCentre = 300;
 	
 }
 
-Circle::Circle(int xPosition, int yPosition, int raduis, int numCircPoints):size()
+Circle::Circle(int xPosition, int yPosition, int raduis, int numCircPoints) :size(), xCentre(), yCentre(), xPosition(), yPosition(), increment()
 {
 	
 	circleArray.setPrimitiveType(sf::LinesStrip);
-	circleArray.resize(numCircPoints);
+	circleArray.resize(numCircPoints+1);
 	xCentre = xPosition;
 	yCentre = yPosition;
+	numCircPoints = { 60};
 
-
-	//numCircPoints = { 30 };
-
-	
-	//int i_angleIncrement = 360 / numCircPoints;
-	//	// x' = x+ cos(theta)*r ;
-	//	//y' = y+ sin(theta)*r ;
-	for (int i = 0; i < numCircPoints; i++) {
+	for (int i = 0; i < numCircPoints; i++) 
+	{
+		
 		circleArray[i].position = sf::Vector2f((xCentre + cos(theta) * radius), (yCentre + sin(theta) * radius));
-		theta = theta + pi;
-		circleArray[0] = sf::Vector2f(xPosition, yPosition);
+		//theta = theta += pi;
+		//i++;
+		//circleArray[0] = sf::Vector2f(xCentre, yCentre);
+		theta = ((float)i)*360/numCircPoints;
 	}
-	//circleArray[numCircPoints] = circleArray[0];
+	circleArray[numCircPoints] = circleArray[0];
 }
-
-
-
-
-
 
 void Circle::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
