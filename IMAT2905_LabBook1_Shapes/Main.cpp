@@ -2,6 +2,9 @@
 #include"Circle.h"
 #include"Circle2.h"
 #include"Elipse.h"
+#include"Arc.h"
+#include"Triangle.h"
+#include"Square.h"
 #include<iostream>
 
 using namespace std;
@@ -16,7 +19,9 @@ int main()
     //Circle newCircle(850,590,150,60);
     Circle2 newCircle2(300, 300, 120, 60);
     Elipse newElipse(600, 500, 100, 60);
-
+    Arc newArc(900, 800, 80, 80);
+    Triangle newTriangle (sf::Vector2f(800, 150), sf::Vector2f(650,350),sf::Vector2f(950, 350),sf::Vector2f(800, 150));
+    Square newSquare(sf::Vector2f(100, 500), sf::Vector2f(100, 700), sf::Vector2f(300, 700), sf::Vector2f(300, 500), (sf::Vector2f(100, 500)));
     //sf::CircleShape shape(100.f);
     //shape.setFillColor(sf::Color::Green);
     //sf::VertexArray rectang(sf::Quads, 4);
@@ -56,6 +61,9 @@ int main()
         window.clear();
        window.draw(newElipse);
        window.draw(newCircle2);
+       window.draw(newArc);
+       window.draw(newTriangle);
+       window.draw(newSquare);
         window.display();
         //sf::Time elapsed = clock.getElapsedTime();
         //cout << elapsed.asSeconds() << endl;
