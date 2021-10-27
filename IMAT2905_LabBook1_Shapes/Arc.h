@@ -5,6 +5,7 @@
 
 
 private:
+	const int size = 61;
 	int xCentre;
 	int yCentre;
 	int radiusX;

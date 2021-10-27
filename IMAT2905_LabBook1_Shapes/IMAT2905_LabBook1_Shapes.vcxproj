@@ -148,8 +148,12 @@
     <ClCompile Include="Arc.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Circle2.cpp" />
+    <ClCompile Include="Dot.cpp" />
     <ClCompile Include="Elipse.cpp" />
+    <ClCompile Include="Hexagon.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Octagon.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
@@ -157,7 +161,11 @@
     <ClInclude Include="Arc.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Circle2.h" />
+    <ClInclude Include="Dot.h" />
     <ClInclude Include="Elipse.h" />
+    <ClInclude Include="Hexagon.h" />
+    <ClInclude Include="Line.h" />
+    <ClInclude Include="Octagon.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>

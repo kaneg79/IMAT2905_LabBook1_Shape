@@ -1,27 +1,15 @@
 #include "Elipse.h"
 
-
-
-Elipse::Elipse(int xPosition, int yPosition, int radiusX, int radiusY, int pointTotal) {
+Elipse::Elipse(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition) {
 	xCentre = xPosition;
 	yCentre = yPosition;
-	numberOfElipsePoints = pointTotal;
-	elipseArray.setPrimitiveType(sf::LineStrip);
-	elipseArray.resize(numberOfElipsePoints);
-	createElipse();
-}
-
-Elipse::Elipse(int xPosition, int yPosition, int centreOfXDiameter, int centreOfYDiameter) {
-	xCentre = xPosition;
-	yCentre = yPosition;
-	radiusX = centreOfXDiameter;
-	radiusY = centreOfYDiameter;
+	radiusX = radiusXPosition;
+	radiusY = radiusYPosition;
 	numberOfElipsePoints = 60;
 	elipseArray.setPrimitiveType(sf::LineStrip);
 	elipseArray.resize(numberOfElipsePoints+1);
 	createElipse();
 }
-
 
 void Elipse::createElipse() {
 	float theta = 0;
