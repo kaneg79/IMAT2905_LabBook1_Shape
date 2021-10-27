@@ -27,6 +27,9 @@
     <ClCompile Include="Circle2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Elipse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Circle2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Elipse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

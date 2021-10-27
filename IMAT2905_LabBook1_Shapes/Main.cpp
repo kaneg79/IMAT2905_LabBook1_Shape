@@ -1,7 +1,7 @@
 #include<SFML/Graphics.hpp>
 #include"Circle.h"
 #include"Circle2.h"
-//#include"Elipse.h"
+#include"Elipse.h"
 #include<iostream>
 
 using namespace std;
@@ -15,7 +15,7 @@ int main()
 
     //Circle newCircle(850,590,150,60);
     Circle2 newCircle2(300, 300, 120, 60);
-    //Elipse newElipse(400, 400, 100, 60);
+    Elipse newElipse(600, 500, 100, 60);
 
     //sf::CircleShape shape(100.f);
     //shape.setFillColor(sf::Color::Green);
@@ -54,7 +54,7 @@ int main()
         //rectang[0].position.x += xVelocity;
         //rectang[2].position.x += yVelocity;
         window.clear();
-       //window.draw(newElipse);
+       window.draw(newElipse);
        window.draw(newCircle2);
         window.display();
         //sf::Time elapsed = clock.getElapsedTime();
