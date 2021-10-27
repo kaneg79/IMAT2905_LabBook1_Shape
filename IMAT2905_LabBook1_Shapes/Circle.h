@@ -1,23 +1,22 @@
 #include "SFML/Graphics.hpp"
+/*
 	class Circle : public sf::Drawable
 	{
 
 
 	private:
 		
-
 		sf::VertexArray circleArray;
-		const int size;
+		sf::VertexArray elipseArray;
 		const float pi = 3.141;
 		float increment = 2 * pi / numCircPoints;
 		int numCircPoints;
-		int xCentre;
-		int yCentre;
 		int xPosition;
 		int yPosition;
 		int theta = 0;
-		float radius = { 200 };
-		
+		float radius = { 150 };
+		float radiusX = { 300 };
+		float radiusY = { 100 };
 
 	public:
 
@@ -30,4 +29,4 @@
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	};
 
-
+	*/
