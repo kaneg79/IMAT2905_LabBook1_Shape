@@ -1,89 +1,88 @@
 #include<SFML/Graphics.hpp>
 #include"Circle.h"
-#include"Circle2.h"
 #include"Elipse.h"
-#include"Arc.h"
-#include"Triangle.h"
 #include"Square.h"
-#include"Hexagon.h"
-#include"Octagon.h"
+#include"Dodecagon.h"
 #include"Line.h"
 #include"Dot.h"
-#include"Test.h"
-#include<iostream>
+#include"Triangle.h"
+#include"Arc.h"
+#include"Hexagon.h"
+#include"Octagon.h"
 
+#include<iostream>
 using namespace std;
 int main()
 
 {
-    
-    sf::RenderWindow window(sf::VideoMode(1900, 1080), "Its Broken");
+    sf::RenderWindow window(sf::VideoMode(1900, 1080), "Better Code");
     window.setFramerateLimit(60);
-    //sf::Clock clock;
+    sf::Clock clock;
+    sf::Time deltaTime;
 
-    //Circle newCircle(850,590,150,60);
    
-    Test newTest1(1650, 950, 80, 80, 60);
-    Dot newDot(sf::Vector2f(1500, 902), sf::Vector2f(1499, 902));
+ 
+    Circle newCircle(200, 200, 120, 120);
+    Elipse newElipse(300, 800, 120, 60);
+    Square newSquare(900, 200, 100, 100);
+    Dodecagon newDodecagon(650, 500, 120, 120);
     Line newLine(sf::Vector2f(700, 700), sf::Vector2f(950, 950));
-    Circle2 newCircle2(300, 300, 120, 60);
-    Elipse newElipse(600, 500, 100, 60);
-    Arc newArc(100, 150, 80, 80);
-    Triangle newTriangle (sf::Vector2f(800, 150), sf::Vector2f(650,350),sf::Vector2f(950, 350),sf::Vector2f(800, 150));
-    Square newSquare(sf::Vector2f(100, 500), sf::Vector2f(100, 700), sf::Vector2f(300, 700), sf::Vector2f(300, 500), (sf::Vector2f(100, 500)));
-    Hexagon newHexagon(1200, 150, 90, 90);
+    Dot newDot(sf::Vector2f(1400, 902), sf::Vector2f(1399, 902));
+    Triangle newtriangle(1650, 550, 100, 100);
+    Arc newArc(1600, 850, 80, 80, 60);
+    Hexagon newHexagon(1450, 150, 90, 90);
     Octagon newOctagon(1200, 600, 90, 90);
-    //sf::CircleShape shape(100.f);
-    //shape.setFillColor(sf::Color::Green);
-    //sf::VertexArray rectang(sf::Quads, 4);
-    //sf::VertexArray triangle(sf::Triangles, 3);
-    //sf::RectangleShape rectang;
-    //sf::Vector2f(rect)
 
-    //// define the position of the quad's points
-    //rectang[0].position = sf::Vector2f(10, 10);
-    //rectang[1].position = sf::Vector2f(100, 10);
-    //rectang[2].position = sf::Vector2f(100, 100);
-    //rectang[3].position = sf::Vector2f(10, 100);
-    // define the color of the triangle's points
-    //rectang[0].color = sf::Color::Red;
-    //rectang[1].color = sf::Color::Blue;
-    //rectang[2].color = sf::Color::Green;
-   // rectang[3].color = sf::Color::Yellow;
-
-   
-
-    //float xVelocity = {1};
-    //float yVelocity = {1};
-
-  
+    
+    float xVelocity = {1};
+    float yVelocity = {1};
+    sf::Transform transform;
+    //transform.rotate(45, sf::Vector2f(10,10));
+    //float rotation = transform.rotate(0,0);
+    
+    sf::RenderStates states;
+    states.transform = transform;
 
     while (window.isOpen())
     {
+
+        
         sf::Event event; 
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)window.close();
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))window.close();
-        }
 
-        //rectang[0].position.x += xVelocity;
-        //rectang[2].position.x += yVelocity;
-        window.clear();
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                //sf::Vector2f(xVelocity, yVelocity) / deltaTime;
+               // newArc.xPosition.rotate* deltaTime;
+                transform.transformPoint(10.f, 10.f);
+                //transform.scale(4.f, 1.6f);
+                sf::Transform;transform.rotate(15, sf::Vector2f(10, 0));
+      
+                window.clear();
+            }
+         
+
+        }
        
-        window.draw(newTest1);
-        window.draw(newDot);
-        window.draw(newLine);
+        deltaTime = clock.restart();
+       
+       
+       window.draw(newCircle);
        window.draw(newElipse);
-       window.draw(newCircle2);
+       window.draw(newSquare, transform);
+       window.draw(newDodecagon, transform);
+       window.draw(newLine);
+       window.draw(newDot);
+       window.draw(newtriangle);
        window.draw(newArc);
-       window.draw(newTriangle);
-       window.draw(newSquare);
        window.draw(newHexagon);
        window.draw(newOctagon);
-        window.display();
-        //sf::Time elapsed = clock.getElapsedTime();
-        //cout << elapsed.asSeconds() << endl;
+       window.display();
+       //sf::Time elapsed = clock.getElapsedTime();
+       cout << deltaTime.asSeconds() << endl;
     }
 
     return 0;

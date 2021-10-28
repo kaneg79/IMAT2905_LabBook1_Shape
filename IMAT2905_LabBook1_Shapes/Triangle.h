@@ -1,17 +1,20 @@
 #include<SFML/Graphics.hpp>
-class Triangle: public sf::Drawable
-{
 
+class Triangle :public sf::Drawable
+{
 private:
 
-		const float size = 4;
-		sf::VertexArray triangleArray;
+	sf::VertexArray triangleArray;
+	int xPos;
+	int yPos;
+	int radiusX;
+	int radiusY;
+	int NumberOfPoints = 3;
 
 public:
 
-	Triangle();
-	Triangle(sf::Vector2f point1, sf::Vector2f point2, sf::Vector2f point3, sf::Vector2f point4);
-	void draw();
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+	Triangle(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition);
+	void createTriangle();
+	void draw(sf::RenderTarget& target, sf::RenderStates)const;
 };
 

@@ -1,32 +1,20 @@
-#include "SFML/Graphics.hpp"
-/*
-	class Circle : public sf::Drawable
-	{
+#include<SFML/Graphics.hpp>
 
+class Circle:public sf::Drawable
+{
+private:
 
-	private:
-		
-		sf::VertexArray circleArray;
-		sf::VertexArray elipseArray;
-		const float pi = 3.141;
-		float increment = 2 * pi / numCircPoints;
-		int numCircPoints;
-		int xPosition;
-		int yPosition;
-		int theta = 0;
-		float radius = { 150 };
-		float radiusX = { 300 };
-		float radiusY = { 100 };
+	sf::VertexArray arcAttempt;
+	int xPos;
+	int yPos;
+	int radiusX;
+	int radiusY;
+	int NumberOfPoints = 60;
 
-	public:
+public:
 
-		
-		Circle(); //Initialising constructor for the circle class
-		
-		Circle(int xPosition, int yPosition, int raduis, int numCircPoints);
-		//~Circle();
-		
-		void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-	};
-
-	*/
+	Circle(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition);
+	void createCircle();
+	void draw(sf::RenderTarget& target, sf::RenderStates)const;//If I add const to this I get a linker error, this works fine on all the other header files
+	
+};

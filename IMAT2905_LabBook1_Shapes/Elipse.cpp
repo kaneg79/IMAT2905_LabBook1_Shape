@@ -1,28 +1,27 @@
 #include "Elipse.h"
 
-Elipse::Elipse(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition) {
-	xCentre = xPosition;
-	yCentre = yPosition;
+Elipse::Elipse(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition) 
+{
+	elipseArray.setPrimitiveType(sf::LineStrip);
+	elipseArray.resize(NumberOfPoints + 1);
+	xPos = xPosition;
+	yPos = yPosition;
 	radiusX = radiusXPosition;
 	radiusY = radiusYPosition;
-	numberOfElipsePoints = 60;
-	elipseArray.setPrimitiveType(sf::LineStrip);
-	elipseArray.resize(numberOfElipsePoints+1);
 	createElipse();
 }
 
 void Elipse::createElipse() {
 	float theta = 0;
-	//int incrementAngle = 360 / numberOfPoints;
 	float pi = 3.141;
-	float incrementAngle = 2 * pi / numberOfElipsePoints;
+	float incrementAngle = 2 * pi / NumberOfPoints;
 
-	for (int i = 0; i < numberOfElipsePoints; i++) {
-		elipseArray[i].position = sf::Vector2f((xCentre + cos(theta) * radiusX), (yCentre + sin(theta) * radiusY));
-		elipseArray[i].color = sf::Color::Red;
+	for (int i = 0; i < NumberOfPoints; i++) {
+		elipseArray[i].position = sf::Vector2f((xPos + cos(theta) * radiusX), (yPos + sin(theta) * radiusY));
+		elipseArray[i].color = sf::Color::Magenta;
 		theta += incrementAngle;
 	}
-	elipseArray[numberOfElipsePoints] = elipseArray[0];
+	elipseArray[NumberOfPoints] = elipseArray[0];
 }
 
 void Elipse::draw(sf::RenderTarget& target, sf::RenderStates states) const

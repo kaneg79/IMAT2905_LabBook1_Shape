@@ -1,36 +1,33 @@
-#include<SFML/Graphics.hpp>
 #include "Circle.h"
-/*
 
-Circle::Circle() :xPosition(), yPosition(), increment()
+Circle::Circle(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition)
 {
+	arcAttempt.setPrimitiveType(sf::LineStrip);
+	arcAttempt.resize(NumberOfPoints+1);
 
+	xPos = xPosition;
+	yPos = yPosition;
+	radiusX = radiusXPosition;
+	radiusY = radiusYPosition;
+	createCircle();
 }
-	
-Circle::Circle(int xPosition, int yPosition, int raduis, int numCircPoints):xPosition(), yPosition(), increment()
+
+
+void Circle::createCircle()
 {
+	float theta = 0;
+	float pi = 3.141;
+	float incrementAngle = 2 * pi / NumberOfPoints;
 
-	circleArray.setPrimitiveType(sf::LinesStrip);
-	circleArray.resize(numCircPoints);
-	sf::Time second = sf::seconds(0.01f);
-	sf::Clock clock;
-
-	numCircPoints = {60};
-
-	for (int i = 0; i < numCircPoints; i++)
-	{
-		circleArray[i].position = sf::Vector2f((xPosition + cos(theta) * radius), (yPosition + sin(theta) * radius));
-		circleArray[i].color = sf::Color::Blue;
-		theta = ((float)i) * 360 / numCircPoints;
+	for (int i = 0; i < NumberOfPoints; i++) {
+		arcAttempt[i].position = sf::Vector2f((xPos + cos(theta) * radiusX), (yPos + sin(theta) * radiusY));
+		arcAttempt[i].color = sf::Color::Magenta;
+		theta += incrementAngle;
 	}
-	
-
+	arcAttempt[NumberOfPoints] = arcAttempt[0];
 }
 
-void Circle::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void Circle::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
-	target.draw(circleArray, states);
+	target.draw(arcAttempt, states);
 }
-
-
-*/

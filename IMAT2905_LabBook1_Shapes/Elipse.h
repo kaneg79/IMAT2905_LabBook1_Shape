@@ -3,12 +3,14 @@
 class Elipse : public sf::Drawable
 {
 private:
-	int xCentre;
-	int yCentre;
+
+	sf::VertexArray elipseArray;
+	int xPos;
+	int yPos;
 	int radiusX;
 	int radiusY;
-	float numberOfElipsePoints;
-	sf::VertexArray elipseArray;
+	float NumberOfPoints = 60;
+	
 
 
 public:
