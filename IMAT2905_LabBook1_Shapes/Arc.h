@@ -1,11 +1,9 @@
 #include"SFML/Graphics.hpp"
 
-	class Arc : public sf::Drawable
+class Arc : public sf::Drawable
 {
-
-
 private:
-	const int size = 61;
+	//const float size = 12;
 	int xCentre;
 	int yCentre;
 	int radiusX;
@@ -19,7 +17,7 @@ private:
 public:
 
 
-
+	
 	Arc(int xPosition, int yPosition, int radiusX, int radiusY);
 	void createArc();
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;

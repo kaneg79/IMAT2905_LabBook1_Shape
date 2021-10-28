@@ -9,6 +9,7 @@
 #include"Octagon.h"
 #include"Line.h"
 #include"Dot.h"
+#include"Test.h"
 #include<iostream>
 
 using namespace std;
@@ -21,6 +22,8 @@ int main()
     //sf::Clock clock;
 
     //Circle newCircle(850,590,150,60);
+   
+    Test newTest1(1650, 950, 80, 80, 60);
     Dot newDot(sf::Vector2f(1500, 902), sf::Vector2f(1499, 902));
     Line newLine(sf::Vector2f(700, 700), sf::Vector2f(950, 950));
     Circle2 newCircle2(300, 300, 120, 60);
@@ -67,6 +70,8 @@ int main()
         //rectang[0].position.x += xVelocity;
         //rectang[2].position.x += yVelocity;
         window.clear();
+       
+        window.draw(newTest1);
         window.draw(newDot);
         window.draw(newLine);
        window.draw(newElipse);

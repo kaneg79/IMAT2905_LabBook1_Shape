@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 
-Arc::Arc(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition):size() {
+Arc::Arc(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition) {
 	xCentre = xPosition;
 	yCentre = yPosition;
 	radiusX = radiusXPosition;
