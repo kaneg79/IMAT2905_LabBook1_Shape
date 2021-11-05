@@ -15,7 +15,7 @@ protected:
 
 public:
 	Polygon();
-	Polygon(int xPosition, int yPosition, int radiusXpos, int radiusYpos);
+	Polygon(int xPosition, int yPosition, int radiusXpos, int radiusYpos);//Overload Constructor with valus passed for X and Y positions, and raduis X and Y positions
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const = 0;
 	//Polygon(int num);
 	~Polygon();

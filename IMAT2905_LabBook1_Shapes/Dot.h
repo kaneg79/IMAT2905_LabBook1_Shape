@@ -12,6 +12,5 @@ public:
 
 	Dot();
 	Dot(sf::Vector2f point1,sf::Vector2f point2);
-	void draw();
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };

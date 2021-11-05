@@ -1,4 +1,14 @@
-#include<SFML/Graphics.hpp>
+/*
+* Hi all, welcome to my shapes project.
+* I have decided to use the polygone approach
+* and divide the circle by the number of points
+* required to make each shape.
+* 
+* The same code has been used to make 10 
+different shapes, making this reusable code,
+for other shapes made by a polygon.
+* 
+*/#include<SFML/Graphics.hpp>
 #include"Circle.h"
 #include"Elipse.h"
 #include"Squares.h"
@@ -21,7 +31,8 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1900, 1080), "IMAT2905_Lab_Book_1");
     window.setFramerateLimit(60);
     /*New instances of each class have been created here and positioned
-    * on screen with the X and Y coordinates
+    * on screen with the X and Y coordinates. The last 2 values can 
+    * be used to alter the width and height
     */
     Circle newCircle(200, 200, 120, 120);
     Elipse newElipse(300, 550, 120, 60);
