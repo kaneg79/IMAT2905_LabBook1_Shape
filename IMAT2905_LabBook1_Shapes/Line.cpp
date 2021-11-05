@@ -1,27 +1,38 @@
 #include "Line.h"
-#include"SFML/Graphics.hpp"
-
-Line::Line()
+Line::Line() :xPos(), yPos(), radiusX(), radiusY()
 {
-	lineArray.resize(size);
 	lineArray.setPrimitiveType(sf::LinesStrip);
-	lineArray[0] = sf::Vector2f(100, 100);
-	lineArray[1] = sf::Vector2f(150, 150);
-	
+	lineArray.resize(size);
 }
-Line::Line(sf::Vector2f point1, sf::Vector2f point2)
+Line::Line(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition)
 {
-	lineArray.resize(size);
-	lineArray.setPrimitiveType(sf::LinesStrip);
-	lineArray[0] = point1;
-	lineArray[0].color = sf::Color::Magenta;
-	lineArray[1] = point2;
-	lineArray[1].color = sf::Color::Green;
+	lineArray.setPrimitiveType(sf::LineStrip);
+	lineArray.resize(NumberOfPoints);
 
+	xPos = xPosition;
+	yPos = yPosition;
+	radiusX = radiusXPosition;
+	radiusY = radiusYPosition;
+	createLine();
+}
 
+void Line::createLine()
+{
+	for (int i = 0; i < NumberOfPoints; i++) 
+	{
+		lineArray[i].position = sf::Vector2f((xPos + cos(theta) * radiusX), (yPos + sin(theta) * radiusY));
+		theta += incrementAngle;
+		lineArray[0].color = sf::Color::Red;
+		lineArray[1].color = sf::Color::Magenta;
+	}
+	
 }
 
 void Line::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	target.draw(lineArray, states);
+	target.draw(lineArray);
+}
+
+Line::~Line()
+{
 }

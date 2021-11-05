@@ -1,4 +1,9 @@
 #include "Triangle.h"
+Triangle::Triangle() :xPos(), yPos(), radiusX(), radiusY()
+{
+	triangleArray.setPrimitiveType(sf::LinesStrip);
+	triangleArray.resize(size);
+}
 Triangle::Triangle(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition)
 {
 	triangleArray.setPrimitiveType(sf::LineStrip);
@@ -29,4 +34,8 @@ void Triangle::createTriangle()
 void Triangle::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
 	target.draw(triangleArray, states);
+}
+
+Triangle::~Triangle()
+{
 }

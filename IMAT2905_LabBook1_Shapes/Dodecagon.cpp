@@ -1,4 +1,9 @@
 #include "Dodecagon.h"
+Dodecagon::Dodecagon() :xPos(), yPos(), radiusX(), radiusY()
+{
+	dodecagonArray.setPrimitiveType(sf::LinesStrip);
+	dodecagonArray.resize(size);
+}
 Dodecagon::Dodecagon(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition)
 {
 	dodecagonArray.setPrimitiveType(sf::LineStrip);
@@ -13,11 +18,8 @@ Dodecagon::Dodecagon(int xPosition, int yPosition, int radiusXPosition, int radi
 
 void Dodecagon::createDodecagon()
 {
-	float theta = 0;
-	float pi = 3.141;
-	float incrementAngle = 2 * pi / NumberOfPoints;
-
-	for (int i = 0; i < NumberOfPoints; i++) {
+	for (int i = 0; i < NumberOfPoints; i++) 
+	{
 		dodecagonArray[i].position = sf::Vector2f((xPos + cos(theta) * radiusX), (yPos + sin(theta) * radiusY));
 		theta += incrementAngle;
 		dodecagonArray[0].color = sf::Color::Red;
@@ -34,4 +36,8 @@ void Dodecagon::createDodecagon()
 void Dodecagon::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(dodecagonArray);
+}
+
+Dodecagon::~Dodecagon()
+{
 }

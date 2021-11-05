@@ -1,29 +1,28 @@
 #include "Arc.h"
 
-Arc::Arc(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition, int numOfP)
+Arc::Arc():xPos(), yPos(),radiusX(),radiusY()
 {
-	arcArray.setPrimitiveType(sf::LineStrip);
+	arcArray.setPrimitiveType(sf::LinesStrip);
+	arcArray.resize(size);
+}
+Arc::Arc(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition)
+{
+	arcArray.setPrimitiveType(sf::LinesStrip);
 	arcArray.resize(NumberOfPoints);
-
 	xPos = xPosition;
 	yPos = yPosition;
 	radiusX = radiusXPosition;
 	radiusY = radiusYPosition;
 	createArc();
 }
-
-
 void Arc::createArc()
 {
-	float theta = 0;
-	float pi = 3.141;
-	float incrementAngle = -1 * pi / NumberOfPoints;
-
-	for (int i = 0; i < NumberOfPoints; i++) {
+	
+	for (int i = 0; i < NumberOfPoints; i++) 
+	{
 		arcArray[i].position = sf::Vector2f((xPos + cos(theta) * radiusX), (yPos + sin(theta) * radiusY));
 		theta += incrementAngle;
-		arcArray[i].color = sf::Color::Magenta;
-		
+		arcArray[i].color = sf::Color::Cyan;
 	}
 	
 }
@@ -31,6 +30,10 @@ void Arc::createArc()
 void Arc::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(arcArray, states);
+}
+
+Arc::~Arc()//Deconstructor
+{
 }
 
 

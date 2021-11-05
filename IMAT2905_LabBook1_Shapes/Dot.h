@@ -5,7 +5,7 @@ class Dot : public sf::Drawable
 
 private:
 
-	const float size = 2;
+	const int size = {2};
 	sf::VertexArray dotArray;
 
 public:

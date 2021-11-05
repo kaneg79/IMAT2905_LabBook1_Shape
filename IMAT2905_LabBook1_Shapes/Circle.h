@@ -4,17 +4,22 @@ class Circle:public sf::Drawable
 {
 private:
 
-	sf::VertexArray arcAttempt;
+	sf::VertexArray circleArray;
+	const int size = { 0 };
 	int xPos;
 	int yPos;
 	int radiusX;
 	int radiusY;
-	int NumberOfPoints = 60;
-
+	float theta = 0;
+	float pi = { 3.14159265359 };
+	float NumberOfPoints = { 60.0f };
+	float incrementAngle = { 2 * pi / NumberOfPoints };
 public:
-
+	Circle();
 	Circle(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition);
 	void createCircle();
-	void draw(sf::RenderTarget& target, sf::RenderStates)const;//If I add const to this I get a linker error, this works fine on all the other header files
+	void draw(sf::RenderTarget& target, sf::RenderStates)const;
+	~Circle();
+
 	
 };

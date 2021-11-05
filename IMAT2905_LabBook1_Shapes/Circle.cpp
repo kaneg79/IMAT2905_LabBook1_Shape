@@ -1,9 +1,15 @@
 #include "Circle.h"
 
+Circle::Circle() :xPos(), yPos(), radiusX(), radiusY()
+{
+	circleArray.setPrimitiveType(sf::LinesStrip);
+	circleArray.resize(size);
+}
+
 Circle::Circle(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition)
 {
-	arcAttempt.setPrimitiveType(sf::LineStrip);
-	arcAttempt.resize(NumberOfPoints+1);
+	circleArray.setPrimitiveType(sf::LineStrip);
+	circleArray.resize(NumberOfPoints+1);
 
 	xPos = xPosition;
 	yPos = yPosition;
@@ -12,22 +18,22 @@ Circle::Circle(int xPosition, int yPosition, int radiusXPosition, int radiusYPos
 	createCircle();
 }
 
-
 void Circle::createCircle()
 {
-	float theta = 0;
-	float pi = 3.141;
-	float incrementAngle = 2 * pi / NumberOfPoints;
-
-	for (int i = 0; i < NumberOfPoints; i++) {
-		arcAttempt[i].position = sf::Vector2f((xPos + cos(theta) * radiusX), (yPos + sin(theta) * radiusY));
-		arcAttempt[i].color = sf::Color::Magenta;
+	for (int i = 0; i < NumberOfPoints; i++) 
+	{
+		circleArray[i].position = sf::Vector2f((xPos + cos(theta) * radiusX), (yPos + sin(theta) * radiusY));
 		theta += incrementAngle;
+		circleArray[i].color = sf::Color::Yellow;
 	}
-	arcAttempt[NumberOfPoints] = arcAttempt[0];
+	circleArray[NumberOfPoints] = circleArray[0];
 }
 
 void Circle::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
-	target.draw(arcAttempt, states);
+	target.draw(circleArray, states);
+}
+
+Circle::~Circle()
+{
 }

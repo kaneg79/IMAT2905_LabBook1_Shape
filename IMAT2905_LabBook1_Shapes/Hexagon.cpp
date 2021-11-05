@@ -1,5 +1,10 @@
 #include "Hexagon.h"
-Hexagon::Hexagon(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition) 
+Hexagon::Hexagon():xPos(), yPos(), radiusX(), radiusY()
+{
+	hexagonArray.setPrimitiveType(sf::LinesStrip);
+	hexagonArray.resize(size);
+}
+Hexagon::Hexagon(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition)
 {
 	hexagonArray.setPrimitiveType(sf::LineStrip);
 	hexagonArray.resize(NumberOfPoints + 1);
@@ -13,19 +18,16 @@ Hexagon::Hexagon(int xPosition, int yPosition, int radiusXPosition, int radiusYP
 
 void Hexagon::createhexagon()
 {
-	float theta = 0;
-	float pi = 3.141;
-	float incrementAngle = 2 * pi / NumberOfPoints;
-
-	for (int i = 0; i < NumberOfPoints; i++) {
+	for (int i = 0; i < NumberOfPoints; i++) 
+	{
 		hexagonArray[i].position = sf::Vector2f((xPos + cos(theta) * radiusX), (yPos + sin(theta) * radiusY));
+		theta += incrementAngle;
 		hexagonArray[0].color = sf::Color::Red;
 		hexagonArray[1].color = sf::Color::Magenta;
 		hexagonArray[2].color = sf::Color::Cyan;
 		hexagonArray[3].color = sf::Color::Yellow;
 		hexagonArray[4].color = sf::Color::Red;
 		hexagonArray[5].color = sf::Color::Magenta;
-		theta += incrementAngle;
 	}
 	hexagonArray[NumberOfPoints] = hexagonArray[0];
 }
@@ -33,4 +35,8 @@ void Hexagon::createhexagon()
 void Hexagon::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(hexagonArray);
+}
+
+Hexagon::~Hexagon()
+{
 }

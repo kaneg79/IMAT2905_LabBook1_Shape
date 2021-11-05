@@ -1,4 +1,9 @@
 #include "Octagon.h"
+Octagon::Octagon() :xPos(), yPos(), radiusX(), radiusY()
+{
+	octagonArray.setPrimitiveType(sf::LinesStrip);
+	octagonArray.resize(size);
+}
 Octagon::Octagon(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition)
 {
 	octagonArray.setPrimitiveType(sf::LineStrip);
@@ -13,11 +18,8 @@ Octagon::Octagon(int xPosition, int yPosition, int radiusXPosition, int radiusYP
 
 void Octagon::createOctagon()
 {
-	float theta = 0;
-	float pi = 3.141;
-	float incrementAngle = 2 * pi / NumberOfPoints;
-
-	for (int i = 0; i < NumberOfPoints; i++) {
+	for (int i = 0; i < NumberOfPoints; i++) 
+	{
 		octagonArray[i].position = sf::Vector2f((xPos + cos(theta) * radiusX), (yPos + sin(theta) * radiusY));
 		theta += incrementAngle;
 		octagonArray[0].color = sf::Color::Red;
@@ -34,4 +36,8 @@ void Octagon::createOctagon()
 void Octagon::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(octagonArray);
+}
+
+Octagon::~Octagon()
+{
 }

@@ -1,6 +1,12 @@
 #include "Elipse.h"
 
-Elipse::Elipse(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition) 
+Elipse::Elipse() :xPos(), yPos(), radiusX(), radiusY()
+{
+	elipseArray.setPrimitiveType(sf::LinesStrip);
+	elipseArray.resize(size);
+}
+
+Elipse::Elipse(int xPosition, int yPosition, int radiusXPosition, int radiusYPosition)
 {
 	elipseArray.setPrimitiveType(sf::LineStrip);
 	elipseArray.resize(NumberOfPoints + 1);
@@ -11,12 +17,10 @@ Elipse::Elipse(int xPosition, int yPosition, int radiusXPosition, int radiusYPos
 	createElipse();
 }
 
-void Elipse::createElipse() {
-	float theta = 0;
-	float pi = 3.141;
-	float incrementAngle = 2 * pi / NumberOfPoints;
-
-	for (int i = 0; i < NumberOfPoints; i++) {
+void Elipse::createElipse() 
+{
+	for (int i = 0; i < NumberOfPoints; i++) 
+	{
 		elipseArray[i].position = sf::Vector2f((xPos + cos(theta) * radiusX), (yPos + sin(theta) * radiusY));
 		elipseArray[i].color = sf::Color::Magenta;
 		theta += incrementAngle;
@@ -27,6 +31,10 @@ void Elipse::createElipse() {
 void Elipse::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(elipseArray);
+}
+
+Elipse::~Elipse()
+{
 }
 
 
